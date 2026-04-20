@@ -1,0 +1,23 @@
+{
+  "name": "2026.04_agent_slides",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aayejinpeng/2026.04_agent_slides.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aayejinpeng/2026.04_agent_slides/issues"
+  },
+  "homepage": "https://github.com/aayejinpeng/2026.04_agent_slides#readme",
+  "dependencies": {
+    "reveal.js": "^5.2.1"
+  }
+}

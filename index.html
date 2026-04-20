@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Agent 与 Coding Harness 实战</title>
+    <link rel="stylesheet" href="node_modules/reveal.js/dist/reveal.css">
+    <link rel="stylesheet" href="node_modules/reveal.js/dist/theme/black.css">
+    <link rel="stylesheet" href="node_modules/reveal.js/plugin/highlight/monokai.css">
+    <link rel="stylesheet" href="css/custom.css">
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+
+            <!-- Section 0: 开场钩子 -->
+            <section data-markdown="slides/section0_hook.md" data-separator="^\n\n\n" data-separator-vertical="^\n\n"></section>
+
+            <!-- Section 1: 爽点轰炸 -->
+            <section data-markdown="slides/section1_demos.md" data-separator="^\n\n\n" data-separator-vertical="^\n\n"></section>
+
+            <!-- Section 2: Survey Pipeline -->
+            <section data-markdown="slides/section2_survey.md" data-separator="^\n\n\n" data-separator-vertical="^\n\n"></section>
+
+            <!-- Section 3: 工具选型 -->
+            <section data-markdown="slides/section3_guide.md" data-separator="^\n\n\n" data-separator-vertical="^\n\n"></section>
+
+            <!-- Section 4: 行动呼吁 -->
+            <section data-markdown="slides/section4_action.md" data-separator="^\n\n\n" data-separator-vertical="^\n\n"></section>
+
+            <!-- Section 5: 结尾 -->
+            <section data-markdown="slides/section5_end.md" data-separator="^\n\n\n" data-separator-vertical="^\n\n"></section>
+
+        </div>
+    </div>
+
+    <script src="node_modules/reveal.js/dist/reveal.js"></script>
+    <script src="node_modules/reveal.js/plugin/markdown/markdown.js"></script>
+    <script src="node_modules/reveal.js/plugin/highlight/highlight.js"></script>
+    <script src="node_modules/reveal.js/plugin/notes/notes.js"></script>
+    <script>
+        Reveal.initialize({
+            hash: true,
+            slideNumber: true,
+            transition: 'fade',
+            transitionSpeed: 'default',
+            backgroundTransition: 'fade',
+            width: 1280,
+            height: 720,
+            margin: 0.04,
+            plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+            markdown: {
+                smartypants: false
+            }
+        });
+    </script>
+</body>
+</html>

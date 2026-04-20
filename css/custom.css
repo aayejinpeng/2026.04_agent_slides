@@ -1,0 +1,194 @@
+/* ===== 自定义主题：暗色 + ciae 蓝 ===== */
+
+:root {
+    --ciae: #004EA2;
+    --ciae-light: #3a7fd5;
+    --deepred: #cc3333;
+    --deepgreen: #33aa55;
+    --halfgray: #888888;
+}
+
+/* 全局 */
+.reveal {
+    font-family: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+    color: #eeeeee;
+}
+.reveal h1, .reveal h2, .reveal h3 {
+    color: #ffffff;
+    text-transform: none;
+    font-weight: 700;
+}
+.reveal h1 { font-size: 2.4em; }
+.reveal h2 { font-size: 1.6em; }
+.reveal section { text-align: left; }
+.reveal .slides section { text-align: left; }
+
+/* 大字口号页 */
+.big-phrase {
+    text-align: center !important;
+    font-size: 2.2em !important;
+    font-weight: 700;
+    line-height: 1.4;
+    padding-top: 25%;
+}
+.big-phrase .highlight {
+    color: var(--ciae-light);
+}
+.big-phrase .accent {
+    color: var(--deepred);
+}
+.big-phrase .green {
+    color: var(--deepgreen);
+}
+
+/* 大数字 */
+.big-number {
+    text-align: center !important;
+    font-size: 4em !important;
+    font-weight: 900;
+    color: var(--ciae-light);
+    line-height: 1.2;
+}
+.big-number .unit {
+    font-size: 0.5em;
+    color: var(--halfgray);
+}
+
+/* 逐条出现 */
+.reveal .fragment {
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+.reveal .fragment.visible {
+    opacity: 1;
+}
+
+/* 全屏图片 */
+.r-stretch {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+/* 终端/代码块 */
+.reveal pre {
+    width: 100%;
+    font-size: 0.55em;
+    line-height: 1.3;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+}
+.reveal code {
+    font-family: "JetBrains Mono", "Fira Code", "Consolas", monospace;
+    max-height: 100%;
+}
+
+/* 两栏布局 */
+.two-col {
+    display: flex;
+    gap: 1.5em;
+}
+.two-col > div {
+    flex: 1;
+}
+
+/* 三栏布局 */
+.three-col {
+    display: flex;
+    gap: 1em;
+}
+.three-col > div {
+    flex: 1;
+}
+
+/* 对比卡片 */
+.compare-card {
+    background: rgba(255,255,255,0.05);
+    border-radius: 8px;
+    padding: 1em 1.2em;
+    margin: 0.3em 0;
+}
+.compare-card.good {
+    border-left: 4px solid var(--deepgreen);
+}
+.compare-card.bad {
+    border-left: 4px solid var(--deepred);
+}
+.compare-card.neutral {
+    border-left: 4px solid var(--ciae);
+}
+
+/* 工具卡片 */
+.tool-card {
+    background: rgba(255,255,255,0.05);
+    border-radius: 8px;
+    padding: 1em;
+    text-align: center;
+}
+.tool-card .tool-name {
+    font-size: 1.3em;
+    font-weight: 700;
+    color: var(--ciae-light);
+    margin-bottom: 0.3em;
+}
+.tool-card .tool-desc {
+    font-size: 0.8em;
+    color: #cccccc;
+}
+
+/* 数据卡片 */
+.data-item {
+    display: inline-block;
+    text-align: center;
+    margin: 0.5em 1em;
+}
+.data-item .data-val {
+    font-size: 2.5em;
+    font-weight: 900;
+    color: var(--ciae-light);
+}
+.data-item .data-label {
+    font-size: 0.7em;
+    color: var(--halfgray);
+}
+
+/* 表格 */
+.reveal table {
+    margin: auto;
+    border-collapse: collapse;
+    font-size: 0.7em;
+}
+.reveal table th {
+    background: var(--ciae);
+    color: white;
+    padding: 0.4em 0.8em;
+}
+.reveal table td {
+    padding: 0.3em 0.8em;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.reveal table tr:hover td {
+    background: rgba(255,255,255,0.05);
+}
+
+/* 列表 */
+.reveal ul {
+    list-style: none;
+    padding-left: 0;
+}
+.reveal ul li::before {
+    content: "▸ ";
+    color: var(--ciae-light);
+}
+.reveal ol li::marker {
+    color: var(--ciae-light);
+}
+
+/* 小字 */
+.small { font-size: 0.7em; color: var(--halfgray); }
+.tiny { font-size: 0.55em; color: var(--halfgray); }
+
+/* 进度条颜色 */
+.reveal .progress { color: var(--ciae); height: 3px; }
+
+/* 页码 */
+.reveal .slide-number { color: var(--halfgray); font-size: 14px; }
