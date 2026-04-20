@@ -50,7 +50,7 @@
 
 **S0 — 大字：你还在手动做这些事吗？**
 - 黑色背景，白色大字
-- 下方 3 个痛点渐次出现（动画）：调研近10年来与自己topic相关的论文 / 逐篇下载论文看摘要 / 发现topic不相关继续search
+- 下方 3 个痛点渐次出现（动画）：调研近10年来与自己topic相关的论文 / 把论文逐篇喂给豆包/ChatGPT网页端 / 想自动化但不知道怎么搞
 - 停 3 秒共鸣
 
 **S1 — 大字：今天给你们看点不一样的东西**
@@ -64,14 +64,18 @@
 
 ### Section 1: 爽点轰炸（8 min，9 页）
 
-**S3 — 爽点 1：Claude Code 现场分析论文** [现场 Demo 60s]
+**S3 — 爽点 1：Claude Code 分析论文** [现场 Demo 60s]
+- 核心展示：Claude Code 的 plan → read → edit 工作流，以分析论文为例
 - 操作：`claude /analyze-paper-claude DECA-*.json`
-- 预期：30s 输出结构化 dossier（研究目的、贡献、实验数据、研究空白）
-- 讲：一篇 20 页的 MICRO 论文，30 秒出结构化分析
+  1. **Plan**：Claude Code 理解任务（分析论文 JSON，输出结构化 dossier）
+  2. **Read**：读取论文的 abstract + body\_text（几万字）
+  3. **Edit**：输出结构化 JSON（研究目的、贡献、实验数据、研究空白）
+- 预期：30s 输出完整 dossier
+- 讲：不是 ChatGPT 那种"你问一句我答一句"。你定义目标，它执行，你审核结果
 - 保底：截图 `claude-analyze.png`
 - 切回 slides →
 
-**S4 — 大字：30 秒 vs 半天**
+**S4 — 大字：AI 不只回答问题，AI 能自己干活**
 
 **S5 — 爽点 2：Codex 自动审查** [现场 Demo 或截图 45s]
 - 操作：展示 Codex 审查 DECA 的 Claude 分析结果

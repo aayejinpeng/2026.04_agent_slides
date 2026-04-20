@@ -1,5 +1,3 @@
-# Survey Pipeline 全流程
-
 <!-- 以 MICRO'25 DECA 论文走完 9 步 -->
 
 
@@ -23,7 +21,7 @@
 </div>
 
 <div class="tiny" style="margin-top:2em">
-📌 现场启动 review_server.py Demo / 截图待补充
+📌 现场启动 review_server.py Demo / 保底截图：web-review.png
 </div>
 
 
@@ -58,7 +56,7 @@ Claude 分析完一篇 → 立刻送 Codex 审查 → <strong>Pipeline 并行</s
 </div>
 
 <div class="tiny" style="margin-top:1em">
-📌 截图待补充：pipeline_run.png
+📌 终端录屏 / 保底截图：pipeline-run.png
 </div>
 
 
@@ -86,7 +84,7 @@ Ctrl+S 保存你的修改
 </div>
 
 <div class="tiny" style="margin-top:1em">
-📌 现场启动 corpus_reviewer.py Demo / 截图待补充
+📌 现场启动 corpus_reviewer.py Demo / 保底截图：corpus-reviewer.png
 </div>
 
 
@@ -103,21 +101,22 @@ AI 分析 → <span class="highlight">人工对照确认</span> → 可引用素
 
 ```json
 {
-  "research_purpose": "研究目的",          // → 研究目的章节
-  "contributions": [                         // → 国内外研究现状
-    { "point": "贡献点", "evidence": "原文" }
+  "research_purpose": "针对CPU服务器上LLM推理中权重矩阵以量化
+    和稀疏格式存储后需要软件解压缩导致性能瓶颈的问题，
+    提出近核心硬件加速器DECA",
+  "contributions": [
+    { "point": "Roof-Surface三维性能模型", "evidence": "..." },
+    { "point": "DECA近核心解压缩加速器", "evidence": "..." }
   ],
-  "key_results": "实验数据（含具体数值）",    // → 可行性论据
-  "gap_identified": [{                       // → 研究空白
-    "gap": "空白", "relevance_to_cute": "关联"
-  }],
-  "proposal_evidence": {
-    "for_state_of_art": "...",               // → 研究现状论据
-    "for_gap": "...",                        // → 研究空白论据
-    "for_feasibility": "..."                 // → 可行性论据
-  }
+  "key_results": "压缩GeMM加速最高4x，Llama2-70B延迟降低1.6x-1.9x",
+  "gap_identified": [{ "gap": "仅在模拟器验证", "evidence": "..." }]
 }
 ```
+
+<div class="small" style="margin-top:0.5em">
+<!-- 用 DECA 真实数据，不是示意 -->
+↑ DECA (MICRO'25) 的实际输出，直接对应开题报告各章节
+</div>
 
 
 

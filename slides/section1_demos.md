@@ -1,43 +1,44 @@
-# 爽点轰炸
-
-<!-- 占位，后续 Step 3 填充实际内容 -->
+<!-- 三个 Demo，每个 wow 完切回 slides -->
 
 
 
-## Claude Code 30 秒分析论文
+## Claude Code 分析论文
 
 <div class="compare-card good">
 <code style="font-size:0.9em">claude /analyze-paper-claude DECA-*.json</code>
 </div>
 
-<div class="small" style="margin-top:1em">
-→ 一篇 MICRO'25 的 20 页论文，30 秒出结构化分析
-</div>
-
+<div class="two-col" style="margin-top:1em">
+<div>
 <div class="small">
-→ 研究目的 · 贡献点 · 实验数据 · 研究空白
+<strong>Plan</strong>：理解任务，规划分析步骤
+</div>
+<div class="small">
+<strong>Read</strong>：读取论文全文（几万字 body_text）
+</div>
+<div class="small">
+<strong>Edit</strong>：输出结构化 dossier JSON
+</div>
+</div>
+<div>
+<div class="compare-card neutral" style="font-size:0.75em">
+不是 ChatGPT 那种<br>"你问一句我答一句"<br><br>
+你<strong>定义目标 → 它执行 → 你审核</strong>
+</div>
+</div>
 </div>
 
-<div class="tiny" style="margin-top:2em">
-📌 Demo / 截图待补充
+<div class="tiny" style="margin-top:1.5em">
+📌 现场 Demo / 保底截图：claude-analyze.png
 </div>
 
 
 
-## 30 秒 vs 半天
+## AI 不只回答问题，AI 能自己干活
 
-<div class="two-col">
-<div class="compare-card bad" style="text-align:center">
-<div style="font-size:2em; font-weight:900; color:#cc3333">半天</div>
-<div>手动阅读 + 手抄笔记</div>
-</div>
-<div style="display:flex; align-items:center; font-size:2em; color:#888">
-→
-</div>
-<div class="compare-card good" style="text-align:center">
-<div style="font-size:2em; font-weight:900; color:#33aa55">30 秒</div>
-<div>Claude Code Agent</div>
-</div>
+<div class="big-phrase">
+<span class="highlight">Plan → Read → Edit</span><br>
+<span style="font-size:0.6em">你只需要描述目标，剩下的它来</span>
 </div>
 
 
@@ -57,7 +58,7 @@ Claude 分析 → Codex 审查 → 人工确认
 </div>
 
 <div class="tiny" style="margin-top:2em">
-📌 Demo / 截图待补充
+📌 现场 Demo / 保底截图：codex-review.png
 </div>
 
 
@@ -95,7 +96,7 @@ Claude 分析 → Codex 审查 → 人工确认
 </div>
 
 <div class="tiny" style="margin-top:2em">
-📌 Demo / 截图待补充
+📌 现场 Demo / 保底截图：cherry-studio.png
 </div>
 
 
@@ -114,19 +115,25 @@ Claude 分析 → Codex 审查 → 人工确认
 
 ## Pipeline 全景
 
-<div class="small" style="text-align:center">
+<div class="small" style="text-align:center; margin-bottom:1em">
 9 步流水线 · 14600 篇 → 196 篇 → 12 篇核心 → 结构化 dossier
 </div>
 
-<div style="display:flex; gap:0.5em; margin-top:1.5em; justify-content:center">
+<div style="display:flex; gap:0.5em; justify-content:center">
 <div class="compare-card good" style="flex:2; text-align:center; font-size:0.8em">
-<strong>阶段 A</strong><br>DBLP 抓取 → 摘要富化 → 关键词打分<br><span class="tiny">纯脚本自动化</span>
+<strong>阶段 A</strong><br>
+DBLP 抓取 → 摘要富化 → 关键词打分<br>
+<span class="tiny">纯脚本自动化 · 14600 篇筛到 196 篇</span>
 </div>
 <div class="compare-card neutral" style="flex:1; text-align:center; font-size:0.8em">
-<strong>阶段 B</strong><br>Web 审阅 → PDF 同步<br><span class="tiny">人工把关</span>
+<strong>阶段 B</strong><br>
+Web 审阅 → PDF 同步<br>
+<span class="tiny">人工把关 · 键盘标记 keep/skip</span>
 </div>
 <div class="compare-card" style="flex:2; text-align:center; font-size:0.8em; border-left:4px solid #ff9900">
-<strong>阶段 C</strong><br>PDF 解析 → Claude 分析 → GPT 审查 → 人工确认<br><span class="tiny">Agent 主战场</span>
+<strong>阶段 C</strong><br>
+PDF 解析 → Claude 分析 → GPT 审查 → 人工确认<br>
+<span class="tiny">Agent 主战场 · 产出结构化 dossier</span>
 </div>
 </div>
 
