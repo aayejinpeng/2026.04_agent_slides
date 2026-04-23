@@ -1,6 +1,6 @@
 ---
 name: agent 分享会 keypoints
-description: 面向研究生同学的 AI Agent 分享会，Demo-driven 风格，现场展示 Claude Code / Codex CLI / Cherry Studio + Survey Pipeline 实战
+description: 面向研究生同学的 AI Agent 分享会，Demo-driven 风格，现场展示 Claude Code / Codex CLI + Survey Pipeline 实战
 type: reference
 ---
 
@@ -11,13 +11,13 @@ type: reference
 ```
 痛点共鸣（你还在手动做这些？）
     ↓ 3秒停顿
-三连爽点轰炸（Claude Code 30s分析论文 → Codex 交叉审查 → Cherry Studio 零门槛用）
+三连爽点轰炸（Claude Code 30s分析论文 → Codex 交叉审查）
     ↓ "那串起来能做什么？"
 Survey Pipeline 全流程（用同一篇 MICRO'25 DECA 走完 9 步 Pipeline）
     ↓ 数据冲击 14600→12
-工具选型指南（写代码用 CC，跑任务用 CX，日常用 Cherry）
+工具选型指南（写代码用 CC，跑任务用 CX）
     ↓ 行动呼吁
-下载 Cherry Studio → 联系王重熙/李文青申请 Key → 今天就能用
+联系王重熙/李文青申请 Key → 今天就能用
 ```
 
 **关键原则**：
@@ -43,7 +43,7 @@ Survey Pipeline 全流程（用同一篇 MICRO'25 DECA 走完 9 步 Pipeline）
 - **注意事项**：选那篇你最能讲清楚的案例。DECA 全链路数据齐全（PDF + draft + GLM + GPT review + GPT revised），是最佳选择
 
 ### 4. 三个工具一句话定位
-- **要点**：Claude Code = 交互式深度开发；Codex CLI = 沙箱化批量任务；Cherry Studio = 零门槛通用 AI 入口。不拉踩，强调互补
+- **要点**：Claude Code = 交互式深度开发；Codex CLI = 沙箱化批量任务。不拉踩，强调互补
 - **何时使用**：工具选型/推荐场景
 - **注意事项**：不要列对比表格然后一行行念，用场景驱动——"你要做 X？→ 用 Y"
 
@@ -58,7 +58,7 @@ Survey Pipeline 全流程（用同一篇 MICRO'25 DECA 走完 9 步 Pipeline）
 - **注意事项**：数字要有出处，能当场解释每个数字是怎么来的
 
 ### 7. 行动呼吁要具体到"今天"
-- **要点**：不是"推荐大家使用"，是"下载 Cherry Studio → 申请 Key → 3 分钟开始用"。降低到最低门槛
+- **要点**：不是"推荐大家使用"，是"申请 Key → 3 分钟开始用"。降低到最低门槛
 - **何时使用**：分享会结尾
 - **注意事项**：提供具体的操作步骤，不要让观众回去"自己研究"
 
@@ -82,4 +82,4 @@ Beamer 适合学术报告（表格、公式、引用），但 Demo-driven 的分
 讲稿是独立的 script.md（或 reveal.js 的 Speaker Notes），slides 上只放视觉内容。观众看 slides，你讲内容。如果把讲稿写在 slides 上，观众会"读 slides"而不是"听你讲"。
 
 ### 选型金句要重复强化
-"写代码用 CC，跑任务用 CX，日常用 Cherry"——这句在演讲中出现至少 2 次（第一次介绍时、结尾总结时），确保观众记住。
+"写代码用 CC，跑任务用 CX"——这句在演讲中出现至少 2 次（第一次介绍时、结尾总结时），确保观众记住。

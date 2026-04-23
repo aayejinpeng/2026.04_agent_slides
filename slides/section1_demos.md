@@ -71,40 +71,10 @@ Claude 分析 → Codex 审查 → 人工确认
 
 
 
-## Cherry Studio 零门槛
-
-<div class="two-col">
-<div>
-<div class="compare-card good">
-<strong>300+ 模型</strong> 一键切换
-</div>
-<div class="compare-card good" style="margin-top:0.5em">
-<strong>MCP 支持</strong> + 知识库 RAG
-</div>
-<div class="compare-card good" style="margin-top:0.5em">
-<strong>图形界面</strong> 配个 Key 就能用
-</div>
-</div>
-<div>
-<div class="small" style="margin-top:0.5em">
-跨平台：Windows / macOS / Linux
-</div>
-<div class="small" style="margin-top:0.5em">
-不需要命令行，不需要写代码
-</div>
-</div>
-</div>
-
-<div class="tiny" style="margin-top:2em">
-📌 现场 Demo / 保底截图：cherry-studio.png
-</div>
-
-
-
-## 写代码用 CC，跑任务用 CX，日常用 Cherry
+## 写代码用 CC，跑任务用 CX
 
 <div class="big-phrase">
-<span class="highlight">写代码用 CC</span>，<span class="accent">跑任务用 CX</span>，<span class="green">日常用 Cherry</span>
+<span class="highlight">写代码用 CC</span>，<span class="accent">跑任务用 CX</span>
 </div>
 
 

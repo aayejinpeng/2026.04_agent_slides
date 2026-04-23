@@ -1,6 +1,6 @@
 # AI Agent 与 Coding Harness 实战
 
-**从 Demo 到实战：Claude Code · Codex CLI · Cherry Studio**
+**从 Demo 到实战：Claude Code · Codex CLI**
 
 叶锦鹏
 

@@ -34,7 +34,7 @@
 | Section | 时长 | 页数 | 类型 |
 |---------|------|------|------|
 | 0. 开场钩子 | 1 min | 3 | 大字 + 痛点共鸣 |
-| 1. 爽点轰炸：三连 Demo | 8 min | 9 | Demo/Demo/截图交替 |
+| 1. 爽点轰炸：Demo 展示 | 8 min | 9 | Demo/Demo/截图交替 |
 | 2. 大项目：Survey Pipeline 全流程 | 10 min | 8 | 截图 + Demo + 数据展示 |
 | 3. 工具选型指南 | 4 min | 4 | 对比 + 大字口号 |
 | 4. 行动呼吁 | 3 min | 3 | 截图 + 大字 |
@@ -86,22 +86,14 @@
 
 **S6 — 大字：两个模型互相检查 > 自己检查自己**
 
-**S7 — 爽点 3：Cherry Studio 零门槛** [现场 Demo 或截图 45s]
-- 操作：打开 Cherry Studio → 多模型切换 → 配置 API Key → 扔一篇论文知识库问答
-- 讲：不需要命令行，图形界面，配置一个 Key，今天就能用
-- 保底：截图 `cherry-studio.png`
-- 切回 slides →
-
-**S8 — 大字：写代码用 CC，跑任务用 CX，日常用 Cherry**
-
-**S9 — 过渡：那把这些东西串起来能做什么？**
+**S7 — 过渡：那把这些东西串起来能做什么？**
 - 一句话引出 Survey Pipeline
 
-**S10 — Pipeline 全景图** [唯一架构图]
+**S8 — Pipeline 全景图** [唯一架构图]
 - 全屏简洁流水线图，三色块：自动采集 → 人工把关 → Agent 主战场
 - 只停留 15 秒："看个大概就行，下面走一遍"
 
-**S11 — 数据冲击：14600 → 196 → 12**
+**S9 — 数据冲击：14600 → 196 → 12**
 - 大字 + big number 展示
 
 ---
@@ -142,16 +134,16 @@
 ### Section 3: 工具选型（4 min，4 页）
 
 **S20 — 全景对比** [唯一表格]
-- 5 个项目：CC / CX / Cherry Studio / Cursor / Copilot
+- 5 个项目：CC / CX / Cursor / Copilot
 - 极简，每行一句话特色
 
 **S21 — 什么时候用什么** [决策表]
 - 7 个场景 → 推荐工具
 
 **S22 — 我们的实际分工** [三栏截图]
-- Cherry：翻译对话 | CC：代码分析 | CX：批量审查
+- CC：代码分析 | CX：批量审查
 
-**S23 — 大字（重申）：写代码用 CC，跑任务用 CX，日常用 Cherry**
+**S23 — 大字（重申）：写代码用 CC，跑任务用 CX**
 
 ---
 
@@ -221,8 +213,6 @@
     - corpus-reviewer.png：Corpus Reviewer 界面
     - pipeline-run.png：pipeline 运行终端输出
 2.4 工具截图（需安装后截取）：
-    - cherry-studio.png：Cherry Studio 界面
-    - cherry-setup.png：API Key 配置页
 2.5 Pipeline 架构图（SVG/TikZ 或纯 CSS/HTML 绘制）
 ```
 
@@ -286,11 +276,9 @@ slides/2026.04_agent_slides/
 │   └── screenshots/     ← 截图素材
 │       ├── claude-analyze.png
 │       ├── codex-review.png
-│       ├── cherry-studio.png
 │       ├── web-review.png
 │       ├── corpus-reviewer.png
 │       ├── pipeline-run.png
-│       ├── cherry-setup.png
 │       └── pipeline-arch.svg
 ├── survey/              ← survey 仓库（submodule，用于 Demo）
 │   └── (git submodule add)
@@ -308,6 +296,5 @@ slides/2026.04_agent_slides/
 | 事项 | 负责人 | 时机 |
 |------|--------|------|
 | ~~联系王重熙/李文青获取 API 服务信息~~ | — | 不需要，slides 里引导听众联系他俩 |
-| 终端录屏（Claude Code / Codex / Cherry Studio） | 用户 | Step 2 之后 |
-| Cherry Studio 安装 & 配置 | 用户 | Step 2 之前 |
+| 终端录屏（Claude Code / Codex） | 用户 | Step 2 之后 |
 | Review slides + 讲稿 | 用户 | Step 5 |
