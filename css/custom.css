@@ -116,6 +116,10 @@
 .compare-card.neutral {
     border-left: 4px solid var(--ciae);
 }
+.compare-card.agent {
+    border-left: 4px solid #ff9900;
+    background: rgba(255, 153, 0, 0.05);
+}
 
 /* 工具卡片 */
 .tool-card {
@@ -141,12 +145,12 @@
     text-align: center;
     margin: 0.5em 1em;
 }
-.data-item .data-val {
+.data-item .data-val, .data-val {
     font-size: 2.5em;
     font-weight: 900;
     color: var(--ciae-light);
 }
-.data-item .data-label {
+.data-item .data-label, .unit {
     font-size: 0.7em;
     color: var(--halfgray);
 }
