@@ -1,10 +1,10 @@
 <!-- .slide: class="overview-lead-slide" data-background-gradient="radial-gradient(circle at 20% 20%, rgba(58,127,213,0.18), transparent 22%), radial-gradient(circle at 80% 80%, rgba(0,78,162,0.18), transparent 28%), linear-gradient(135deg, #07111e 0%, #040813 55%, #02050a 100%)" -->
 <!-- P0: 大字过渡 -->
 <div class="overview-lead-shell">
-<div class="overview-kicker">Section 1</div>
-<div class="overview-lead-title">先看工程组织，再看实现细节</div>
-<div class="overview-lead-subtitle">Survey 是我自己做的一个综述调研 agent 工程，下面我按目录展开，讲一下这个目标是怎么被拆成 plan、执行、review 和文档的。</div>
-<div class="overview-lead-note">这一节重点不是看代码细节，而是先看清楚每一层职责怎么分。</div>
+<div class="overview-kicker">Section 2</div>
+<div class="overview-lead-title">再看这套流程在 Survey 里怎么落地</div>
+<div class="overview-lead-subtitle">Survey 是我自己做的一个综述调研 agent 工程，下面按真实工程目录看一下前面那套流程最后长成了什么样。</div>
+<div class="overview-lead-note">这一节重点不是解释每个脚本细节，而是看交付物最终落到了哪些文件和目录里。</div>
 </div>
 
 
@@ -14,7 +14,7 @@
 <div class="overview-tree-shell">
 <div class="overview-section-head">
 <div class="overview-kicker">Project Layout</div>
-<div class="overview-section-title">先看 Survey 这个工程是怎么组织起来的</div>
+<div class="overview-section-title">在 Survey 里，流程最终被压成了这些目录和文件</div>
 </div>
 <div class="overview-two-col">
 <div class="overview-terminal-card">
@@ -38,7 +38,7 @@
 <div class="overview-side-notes">
 <div class="overview-note-card">
 <div class="overview-note-title">这页重点</div>
-<div class="overview-note-text">重点不是记住文件名，而是看清楚职责边界：哪里负责规划，哪里负责执行，哪里负责存数据，哪里负责人工介入。</div>
+<div class="overview-note-text">重点不是记住文件名，而是看清楚这些交付物最后分别落到了哪里：plan、step、结构化输出、review 工具和文档。</div>
 </div>
 <div class="overview-chip-grid">
 <div class="overview-mini-chip">Plan</div>
@@ -59,39 +59,39 @@
 <div class="overview-map-shell">
 <div class="overview-section-head">
 <div class="overview-kicker">Execution Order</div>
-<div class="overview-section-title">把目录映射成执行顺序，会更容易看懂这套 agent 工程</div>
+<div class="overview-section-title">把目录映射回前面的流程，就能看清这套方法是怎么落地的</div>
 </div>
 <div class="overview-map-grid overview-map-grid-compact">
 <div class="overview-map-card fragment fade-up" data-fragment-index="1">
-<div class="overview-map-path">plan/</div>
+<div class="overview-map-path">plan/README.md</div>
 <div class="overview-map-arrow">→</div>
-<div class="overview-map-desc">先定义目标，再把任务拆成可以执行的 Step Plan</div>
+<div class="overview-map-desc">对应 Big Plan，先定义方法、阶段和交付物</div>
 </div>
 <div class="overview-map-card fragment fade-up" data-fragment-index="2">
-<div class="overview-map-path">configs/</div>
+<div class="overview-map-path">plan/step*.md</div>
 <div class="overview-map-arrow">→</div>
-<div class="overview-map-desc">把主题、venue 和约束固定下来，避免执行发散</div>
+<div class="overview-map-desc">对应 Step Plan，把每一步细化成可执行流程</div>
 </div>
 <div class="overview-map-card fragment fade-up" data-fragment-index="3">
-<div class="overview-map-path">*.py</div>
+<div class="overview-map-path">configs/ + *.py</div>
 <div class="overview-map-arrow">→</div>
-<div class="overview-map-desc">每一步一个脚本，让 agent 和工具调用边界清楚</div>
+<div class="overview-map-desc">对应执行层：配置约束 + 脚本入口</div>
 </div>
 <div class="overview-map-card fragment fade-up" data-fragment-index="4">
 <div class="overview-map-path">data/ + pdfs/</div>
 <div class="overview-map-arrow">→</div>
-<div class="overview-map-desc">原始素材和中间结果都落盘，整个流程可追踪</div>
+<div class="overview-map-desc">对应结构化输出：原始素材和中间结果都留痕</div>
 </div>
 <div class="overview-map-card fragment fade-up" data-fragment-index="5">
 <div class="overview-map-path">skill/ + review</div>
 <div class="overview-map-arrow">→</div>
-<div class="overview-map-desc">用 harness 和人工 review 把 agent 约束回可控流程</div>
+<div class="overview-map-desc">对应 humanized / harness：把机器结果变成人类可审</div>
 </div>
 <div class="overview-map-card fragment fade-up" data-fragment-index="6">
 <div class="overview-map-path">doc/</div>
 <div class="overview-map-arrow">→</div>
-<div class="overview-map-desc">最后再把结果沉淀成文档，而不是一开始就写文档</div>
+<div class="overview-map-desc">对应归档压缩：把流程固化成文档和可复现说明</div>
 </div>
 </div>
-<div class="overview-map-footer fragment fade-up" data-fragment-index="7">后面几节，其实就是把这六类职责逐步展开。</div>
+<div class="overview-map-footer fragment fade-up" data-fragment-index="7">后面几节我们就顺着这些真实交付物，往下看每一步是怎么跑起来的。</div>
 </div>

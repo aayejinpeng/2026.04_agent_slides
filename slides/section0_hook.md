@@ -41,29 +41,29 @@
 <div class="hook-flow">
 <div class="hook-step fragment fade-up" data-fragment-index="1">
 <div class="hook-step-no">01</div>
-<div class="hook-step-title">Plan</div>
-<div class="hook-step-desc">先定义目标和边界</div>
+<div class="hook-step-title">Big Plan</div>
+<div class="hook-step-desc">先捋清方法、组织逻辑和每步交付物</div>
 </div>
 <div class="hook-step fragment fade-up" data-fragment-index="2">
 <div class="hook-step-no">02</div>
 <div class="hook-step-title">Step Plan</div>
-<div class="hook-step-desc">把输入输出结构化</div>
+<div class="hook-step-desc">把每一步细化成可执行、可 review 的流程</div>
 </div>
 <div class="hook-step fragment fade-up" data-fragment-index="3">
 <div class="hook-step-no">03</div>
-<div class="hook-step-title">执行</div>
-<div class="hook-step-desc">让 Agent 稳定推进</div>
+<div class="hook-step-title">Exec-Review</div>
+<div class="hook-step-desc">和 Agent 配合推进，并产出结构化输出</div>
 </div>
 <div class="hook-step fragment fade-up" data-fragment-index="4">
 <div class="hook-step-no">04</div>
-<div class="hook-step-title">人工 Review</div>
-<div class="hook-step-desc">关键节点必须回到人</div>
+<div class="hook-step-title">Humanized</div>
+<div class="hook-step-desc">做方便人类审阅结构化结果的工具</div>
 </div>
 <div class="hook-step fragment fade-up" data-fragment-index="5">
 <div class="hook-step-no">05</div>
-<div class="hook-step-title">生成 Doc</div>
-<div class="hook-step-desc">最后再沉淀成文档</div>
+<div class="hook-step-title">Skill / Doc</div>
+<div class="hook-step-desc">把流程压缩成可复现脚本、技能和文档</div>
 </div>
 </div>
-<div class="hook-next-line fragment fade-up" data-fragment-index="6">接下来，用一个真实项目走一遍</div>
+<div class="hook-next-line fragment fade-up" data-fragment-index="6">接下来先讲这套流程，再看它在 Survey 工程里怎么落地。</div>
 </div>

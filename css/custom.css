@@ -778,3 +778,482 @@
     scrollbar-width: thin;
     scrollbar-color: rgba(125, 158, 204, 0.45) transparent;
 }
+
+/* ===== Section 2: Plan ===== */
+
+.reveal .slides section.plan-lead-slide,
+.reveal .slides section.plan-pipeline-slide,
+.reveal .slides section.plan-step-slide,
+.reveal .slides section.plan-io-slide,
+.reveal .slides section.plan-drift-slide,
+.reveal .slides section.plan-summary-slide {
+    overflow: hidden;
+}
+
+.plan-lead-shell,
+.plan-pipeline-shell,
+.plan-step-shell,
+.plan-io-shell,
+.plan-drift-shell,
+.plan-summary-shell {
+    min-height: 596px;
+    position: relative;
+}
+
+.plan-lead-shell::before,
+.plan-pipeline-shell::before,
+.plan-step-shell::before,
+.plan-io-shell::before,
+.plan-drift-shell::before,
+.plan-summary-shell::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 28px;
+    pointer-events: none;
+}
+
+.plan-kicker {
+    display: inline-flex;
+    padding: 0.42em 0.84em;
+    border-radius: 999px;
+    border: 1px solid rgba(120, 157, 219, 0.24);
+    background: rgba(8, 18, 36, 0.6);
+    color: var(--ink-soft);
+    font-size: 0.38em;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.plan-lead-shell {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.52em;
+    padding: 0 0.4em;
+}
+
+.plan-lead-title {
+    max-width: 12em;
+    font-size: 1.88em;
+    font-weight: 900;
+    line-height: 1.08;
+    letter-spacing: -0.04em;
+    color: var(--ink);
+}
+
+.plan-lead-subtitle {
+    max-width: 16em;
+    font-size: 0.76em;
+    line-height: 1.42;
+    color: #dce7f8;
+}
+
+.plan-lead-note {
+    max-width: 21em;
+    margin-top: 0.35em;
+    color: var(--ink-soft);
+    font-size: 0.47em;
+    line-height: 1.48;
+}
+
+.plan-pipeline-shell,
+.plan-step-shell,
+.plan-io-shell,
+.plan-drift-shell {
+    display: flex;
+    flex-direction: column;
+    gap: 0.72em;
+}
+
+.plan-section-head {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35em;
+}
+
+.plan-section-title {
+    font-size: 0.9em;
+    font-weight: 800;
+    line-height: 1.18;
+    color: var(--ink);
+}
+
+.plan-pipeline-strip {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.28em;
+    padding: 0.78em 0.88em;
+    border-radius: 22px;
+    border: 1px solid rgba(120, 157, 219, 0.18);
+    background: linear-gradient(180deg, rgba(9, 18, 34, 0.92) 0%, rgba(4, 9, 18, 0.94) 100%);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.22);
+}
+
+.plan-pipeline-strip.plan-pipeline-strip-wide {
+    gap: 0.18em;
+    padding: 0.64em 0.72em;
+}
+
+.plan-goal-card {
+    padding: 0.82em 0.92em;
+    border-radius: 20px;
+    border: 1px solid rgba(120, 157, 219, 0.18);
+    background: rgba(8, 18, 36, 0.74);
+}
+
+.plan-goal-label {
+    color: #84bbff;
+    font-size: 0.34em;
+    font-weight: 900;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.plan-goal-text {
+    margin-top: 0.42em;
+    color: #dce7f8;
+    font-size: 0.48em;
+    line-height: 1.5;
+}
+
+.plan-decompose-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.45em;
+    align-items: start;
+}
+
+.plan-decompose-card {
+    padding: 0.56em 0.62em;
+    border-radius: 18px;
+    border: 1px solid rgba(120, 157, 219, 0.16);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.plan-decompose-card.plan-decompose-card-detail {
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.plan-decompose-step {
+    color: #77aaf2;
+    font-size: 0.34em;
+    font-weight: 900;
+    letter-spacing: 0.14em;
+}
+
+.plan-decompose-text {
+    margin-top: 0.32em;
+    color: var(--ink-soft);
+    font-size: 0.36em;
+    line-height: 1.38;
+}
+
+.plan-decompose-snippet {
+    margin-top: 0.42em;
+    padding: 0.42em 0.5em;
+    border-radius: 12px;
+    border: 1px solid rgba(120, 157, 219, 0.14);
+    background: rgba(8, 18, 36, 0.72);
+    color: #d7e5fb;
+    font-family: "JetBrains Mono", "Fira Code", "Consolas", monospace;
+    font-size: 0.255em;
+    line-height: 1.44;
+}
+
+.plan-decompose-snippet .snippet-key {
+    color: #84bbff;
+    font-weight: 700;
+}
+
+.plan-decompose-snippet .snippet-indent {
+    padding-left: 1.5em;
+}
+
+.plan-node {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 0;
+    padding: 0.68em 0.72em;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(120, 157, 219, 0.16);
+    color: #dce7f8;
+    font-size: 0.42em;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.plan-pipeline-strip.plan-pipeline-strip-wide .plan-node {
+    padding: 0.58em 0.54em;
+    font-size: 0.36em;
+}
+
+.plan-pipeline-strip.plan-pipeline-strip-wide .plan-node-arrow {
+    font-size: 0.54em;
+}
+
+.plan-deliverable-grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 0.4em;
+}
+
+.plan-deliverable-card {
+    min-height: 7.4em;
+    padding: 0.64em 0.62em;
+    border-radius: 18px;
+    border: 1px solid rgba(120, 157, 219, 0.16);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.plan-deliverable-stage {
+    color: #77aaf2;
+    font-size: 0.3em;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+}
+
+.plan-deliverable-title {
+    margin-top: 0.28em;
+    color: var(--ink);
+    font-size: 0.52em;
+    font-weight: 800;
+    line-height: 1.16;
+}
+
+.plan-deliverable-file {
+    margin-top: 0.46em;
+    color: #84bbff;
+    font-family: "JetBrains Mono", "Fira Code", "Consolas", monospace;
+    font-size: 0.29em;
+    line-height: 1.35;
+}
+
+.plan-deliverable-text {
+    margin-top: 0.5em;
+    color: var(--ink-soft);
+    font-size: 0.34em;
+    line-height: 1.42;
+}
+
+.plan-node-arrow {
+    color: rgba(220, 231, 248, 0.38);
+    font-size: 0.66em;
+    font-weight: 700;
+}
+
+.plan-pipeline-note-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.55em;
+}
+
+.plan-note-card,
+.plan-contract-card,
+.plan-io-card,
+.plan-drift-card {
+    border-radius: 20px;
+    border: 1px solid rgba(120, 157, 219, 0.18);
+    background: linear-gradient(180deg, rgba(9, 18, 34, 0.92) 0%, rgba(4, 9, 18, 0.94) 100%);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.22);
+}
+
+.plan-note-card {
+    padding: 0.86em 0.9em;
+}
+
+.plan-note-title {
+    font-size: 0.52em;
+    font-weight: 800;
+    color: var(--ink);
+}
+
+.plan-note-text {
+    margin-top: 0.52em;
+    color: var(--ink-soft);
+    font-size: 0.41em;
+    line-height: 1.55;
+}
+
+.plan-contract-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.55em;
+}
+
+.plan-contract-card {
+    min-height: 6.1em;
+    padding: 0.86em 0.92em;
+}
+
+.plan-contract-label {
+    color: #84bbff;
+    font-size: 0.36em;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.plan-contract-title {
+    margin-top: 0.28em;
+    color: var(--ink);
+    font-size: 0.68em;
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.plan-contract-body {
+    margin-top: 0.52em;
+    color: var(--ink-soft);
+    font-size: 0.42em;
+    line-height: 1.5;
+}
+
+.plan-step-footer,
+.plan-io-emphasis,
+.plan-drift-note {
+    padding: 0.7em 0.92em;
+    border-radius: 18px;
+    background: rgba(58, 127, 213, 0.12);
+    border: 1px solid rgba(90, 151, 228, 0.24);
+    color: #dce9ff;
+    font-size: 0.46em;
+    line-height: 1.46;
+}
+
+.plan-io-compare {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.62em;
+}
+
+.plan-io-card {
+    min-height: 11.6em;
+    padding: 1em 1.05em;
+}
+
+.plan-io-card.bad {
+    border-color: rgba(204, 51, 51, 0.28);
+    background: linear-gradient(180deg, rgba(36, 10, 16, 0.9) 0%, rgba(19, 7, 11, 0.94) 100%);
+}
+
+.plan-io-card.good {
+    border-color: rgba(51, 170, 85, 0.28);
+    background: linear-gradient(180deg, rgba(10, 32, 22, 0.9) 0%, rgba(6, 18, 12, 0.94) 100%);
+}
+
+.plan-io-title {
+    font-size: 0.64em;
+    font-weight: 800;
+    color: var(--ink);
+}
+
+.plan-io-line {
+    margin-top: 0.66em;
+    color: var(--ink-soft);
+    font-size: 0.45em;
+    line-height: 1.52;
+}
+
+.plan-drift-grid {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 0.55em;
+    align-items: center;
+}
+
+.plan-drift-grid.plan-drift-grid-wide {
+    grid-template-columns: 1fr auto 1fr auto 1fr;
+    gap: 0.42em;
+}
+
+.plan-drift-card {
+    min-height: 9.2em;
+    padding: 0.96em 1em;
+}
+
+.plan-drift-grid.plan-drift-grid-wide .plan-drift-card {
+    min-height: 8.1em;
+    padding: 0.78em 0.82em;
+}
+
+.plan-drift-grid.plan-drift-grid-wide .plan-drift-main {
+    font-size: 0.62em;
+}
+
+.plan-drift-grid.plan-drift-grid-wide .plan-drift-text {
+    font-size: 0.38em;
+    line-height: 1.42;
+}
+
+.plan-drift-label {
+    color: #84bbff;
+    font-size: 0.36em;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.plan-drift-main {
+    margin-top: 0.3em;
+    color: var(--ink);
+    font-size: 0.78em;
+    font-weight: 800;
+    line-height: 1.18;
+}
+
+.plan-drift-text {
+    margin-top: 0.62em;
+    color: var(--ink-soft);
+    font-size: 0.43em;
+    line-height: 1.5;
+}
+
+.plan-drift-arrow {
+    color: rgba(220, 231, 248, 0.34);
+    font-size: 0.9em;
+    font-weight: 700;
+}
+
+.plan-summary-shell {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 0.68em;
+    padding: 0 0.6em;
+}
+
+.plan-summary-title {
+    max-width: 12em;
+    font-size: 1.7em;
+    font-weight: 900;
+    line-height: 1.08;
+    letter-spacing: -0.04em;
+    color: var(--ink);
+}
+
+.plan-summary-points {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45em;
+    width: min(100%, 16em);
+}
+
+.plan-summary-line {
+    padding: 0.72em 0.92em;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(120, 157, 219, 0.18);
+    color: #dce7f8;
+    font-size: 0.48em;
+    font-weight: 700;
+    line-height: 1.42;
+}
