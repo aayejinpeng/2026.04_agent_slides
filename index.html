@@ -14,22 +14,34 @@
         <div class="slides">
 
             <!-- Section 0: Hook -->
-            <section data-markdown="slides/section0_hook.md" data-separator="^\n\n\n" data-separator-vertical="^\n\n"></section>
+            <section>
+                <section data-markdown="slides/section0_hook.md" data-separator="^\n\n\n"></section>
+            </section>
 
             <!-- Section 1: 目录结构总览 -->
-            <section data-markdown="slides/section1_overview.md" data-separator="^\n\n\n" data-separator-vertical="^\n\n"></section>
+            <section>
+                <section data-markdown="slides/section1_overview.md" data-separator="^\n\n\n"></section>
+            </section>
 
             <!-- Section 2: Plan → Step Plan -->
-            <section data-markdown="slides/section2_plan.md" data-separator="^\n\n\n" data-separator-vertical="^\n\n"></section>
+            <section>
+                <section data-markdown="slides/section2_plan.md" data-separator="^\n\n\n"></section>
+            </section>
 
             <!-- Section 3: Demo 1 — Step 1-5 -->
-            <section data-markdown="slides/section3_demo1.md" data-separator="^\n\n\n" data-separator-vertical="^\n\n"></section>
+            <section>
+                <section data-markdown="slides/section3_demo1.md" data-separator="^\n\n\n"></section>
+            </section>
 
             <!-- Section 4: Demo 2 — Step 6-8 -->
-            <section data-markdown="slides/section4_demo2.md" data-separator="^\n\n\n" data-separator-vertical="^\n\n"></section>
+            <section>
+                <section data-markdown="slides/section4_demo2.md" data-separator="^\n\n\n"></section>
+            </section>
 
             <!-- Section 5: Meta demo + 收尾 -->
-            <section data-markdown="slides/section5_meta.md" data-separator="^\n\n\n" data-separator-vertical="^\n\n"></section>
+            <section>
+                <section data-markdown="slides/section5_meta.md" data-separator="^\n\n\n"></section>
+            </section>
 
         </div>
     </div>
@@ -41,7 +53,25 @@
     <script>
         Reveal.initialize({
             hash: true,
-            slideNumber: true,
+            slideNumber: function(slide) {
+                const indices = Reveal.getIndices(slide);
+                const horizontalSlides = Reveal.getHorizontalSlides();
+                const sectionRoot = horizontalSlides[indices.h];
+                const childSections = sectionRoot
+                    ? Array.from(sectionRoot.children).filter((node) => node.tagName === 'SECTION')
+                    : [];
+                const sections = horizontalSlides.length;
+                const pages = childSections.length || 1;
+                const page = childSections.length ? indices.v + 1 : 1;
+                const sectionLabel = String(indices.h + 1).padStart(2, '0');
+                const sectionTotal = String(sections).padStart(2, '0');
+                const pageLabel = String(page).padStart(2, '0');
+                const pageTotal = String(pages).padStart(2, '0');
+                return [`SEC ${sectionLabel}/${sectionTotal} · PAGE ${pageLabel}/${pageTotal}`];
+            },
+            showSlideNumber: 'all',
+            controlsTutorial: false,
+            controlsBackArrows: 'faded',
             transition: 'fade',
             transitionSpeed: 'default',
             backgroundTransition: 'fade',
