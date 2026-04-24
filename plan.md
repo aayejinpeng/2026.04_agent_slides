@@ -46,27 +46,27 @@
 
 ### Section 1: 目录结构总览（2 min）
 
-
+用 survey 目录当 roadmap
 
 ### Section 2: Plan → Step Plan（3 min）
 
-
+大 Plan 拆分、小 plan 结构化 I/O、偏差正常、Doc 最后生成
 
 ### Section 3: 执行 Demo Step 1-5（4 min）
 
-
+抓取→打分→Web 审阅
 
 ### Section 4: 执行 Demo Step 6-8（6 min）
 
-
+Agent 分析、双模型、Corpus Reviewer live demo
 
 ### Section 5: Meta demo（3 min）
 
-
+这套 slides 本身就是用同样的方法做的
 
 ### Section 6: 收尾（30 sec）
 
-
+Just do it
 
 ---
 
