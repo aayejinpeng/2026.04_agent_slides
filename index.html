@@ -51,6 +51,335 @@
     <script src="node_modules/reveal.js/plugin/highlight/highlight.js"></script>
     <script src="node_modules/reveal.js/plugin/notes/notes.js"></script>
     <script>
+        function createSvgEl(tag, attrs = {}) {
+            const el = document.createElementNS('http://www.w3.org/2000/svg', tag);
+            Object.entries(attrs).forEach(([key, value]) => el.setAttribute(key, value));
+            return el;
+        }
+
+        function getElementBounds(element) {
+            if (element.type === 'ellipse' || element.type === 'text') {
+                return {
+                    minX: element.x,
+                    minY: element.y,
+                    maxX: element.x + (element.width || 0),
+                    maxY: element.y + (element.height || 0),
+                };
+            }
+            if (element.type === 'arrow') {
+                const pts = element.points || [[0, 0], [element.width || 0, element.height || 0]];
+                const xs = pts.map((p) => element.x + p[0]);
+                const ys = pts.map((p) => element.y + p[1]);
+                return {
+                    minX: Math.min(...xs),
+                    minY: Math.min(...ys),
+                    maxX: Math.max(...xs),
+                    maxY: Math.max(...ys),
+                };
+            }
+            return { minX: 0, minY: 0, maxX: 0, maxY: 0 };
+        }
+
+        function buildArrowGroup(element) {
+            const group = createSvgEl('g');
+            group.classList.add('excal-step', 'excal-step-draw', 'excal-step-pop');
+            const pts = element.points || [[0, 0], [element.width || 0, element.height || 0]];
+            const [start, end] = pts;
+            const x1 = element.x + start[0];
+            const y1 = element.y + start[1];
+            const x2 = element.x + end[0];
+            const y2 = element.y + end[1];
+            const line = `M ${x1} ${y1} L ${x2} ${y2}`;
+            const dx = x2 - x1;
+            const dy = y2 - y1;
+            const len = Math.hypot(dx, dy) || 1;
+            const ux = dx / len;
+            const uy = dy / len;
+            const size = 14;
+            const hx1 = x2 - ux * size - uy * (size * 0.45);
+            const hy1 = y2 - uy * size + ux * (size * 0.45);
+            const hx2 = x2 - ux * size + uy * (size * 0.45);
+            const hy2 = y2 - uy * size - ux * (size * 0.45);
+            const head1 = `M ${hx1} ${hy1} L ${x2} ${y2}`;
+            const head2 = `M ${hx2} ${hy2} L ${x2} ${y2}`;
+
+            [
+                ['path', { d: line, class: 'rough-line' }],
+                ['path', { d: line.replace(`${x1} ${y1}`, `${x1 + 4} ${y1 + 3}`), class: 'rough-line rough-line-alt' }],
+                ['path', { d: head1, class: 'rough-line' }],
+                ['path', { d: head2, class: 'rough-line' }],
+                ['path', { d: head1.replace(`${x2} ${y2}`, `${x2 + 1} ${y2 + 1}`), class: 'rough-line rough-line-alt' }],
+                ['path', { d: head2.replace(`${x2} ${y2}`, `${x2 + 1} ${y2 + 1}`), class: 'rough-line rough-line-alt' }],
+            ].forEach(([tag, attrs]) => group.appendChild(createSvgEl(tag, attrs)));
+
+            return group;
+        }
+
+        function buildEllipseGroup(element) {
+            const group = createSvgEl('g');
+            group.classList.add('excal-step', 'excal-step-draw', 'excal-step-pop');
+            const cx = element.x + element.width / 2;
+            const cy = element.y + element.height / 2;
+            const rx = element.width / 2;
+            const ry = element.height / 2;
+
+            group.appendChild(createSvgEl('ellipse', {
+                cx,
+                cy,
+                rx: Math.max(rx - 2, 1),
+                ry: Math.max(ry - 2, 1),
+                class: 'excal-fill',
+            }));
+            group.appendChild(createSvgEl('ellipse', {
+                cx,
+                cy,
+                rx,
+                ry,
+                class: 'rough-line',
+            }));
+            group.appendChild(createSvgEl('ellipse', {
+                cx: cx + 3,
+                cy: cy + 2,
+                rx: Math.max(rx - 3, 1),
+                ry: Math.max(ry - 4, 1),
+                class: 'rough-line rough-line-alt',
+            }));
+            return group;
+        }
+
+        function buildTextGroup(element) {
+            const group = createSvgEl('g');
+            group.classList.add('excal-step', 'excal-step-pop');
+            const text = createSvgEl('text', {
+                x: element.x,
+                y: element.y + (element.fontSize || 20),
+                class: 'excal-text',
+                'font-size': element.fontSize || 20,
+            });
+            const lines = String(element.text || '').split('\n');
+            lines.forEach((line, index) => {
+                const tspan = createSvgEl('tspan', {
+                    x: element.x,
+                    dy: index === 0 ? 0 : Math.round((element.fontSize || 20) * 1.3),
+                });
+                tspan.textContent = line;
+                text.appendChild(tspan);
+            });
+            group.appendChild(text);
+            return group;
+        }
+
+        function buildImageGroup(element, files = {}) {
+            const group = createSvgEl('g');
+            group.classList.add('excal-step', 'excal-step-pop');
+            const file = files[element.fileId];
+            if (file && file.dataURL) {
+                const frame = createSvgEl('rect', {
+                    x: element.x - 6,
+                    y: element.y - 6,
+                    width: element.width + 12,
+                    height: element.height + 12,
+                    rx: 20,
+                    ry: 20,
+                    fill: 'rgba(255,255,255,0.03)',
+                    stroke: 'rgba(120, 157, 219, 0.18)',
+                    'stroke-width': 2,
+                });
+                const image = createSvgEl('image', {
+                    x: element.x,
+                    y: element.y,
+                    width: element.width,
+                    height: element.height,
+                    preserveAspectRatio: 'none',
+                    href: file.dataURL,
+                });
+                group.appendChild(frame);
+                group.appendChild(image);
+                return group;
+            }
+            const rect = createSvgEl('rect', {
+                x: element.x,
+                y: element.y,
+                width: element.width,
+                height: element.height,
+                rx: 18,
+                ry: 18,
+                fill: 'rgba(255,255,255,0.05)',
+                stroke: 'rgba(120, 157, 219, 0.18)',
+                'stroke-width': 2,
+            });
+            const label = createSvgEl('text', {
+                x: element.x + 18,
+                y: element.y + 34,
+                class: 'excal-text',
+                'font-size': 22,
+            });
+            label.textContent = '[image]';
+            group.appendChild(rect);
+            group.appendChild(label);
+            return group;
+        }
+
+        function createExcalPlayer(player) {
+            const controls = player.parentElement.querySelector('.excal-play-controls');
+            const progress = controls ? controls.querySelector('[data-excal-progress]') : null;
+            let steps = [];
+            let current = 0;
+            let playing = false;
+            let timer = null;
+
+            const update = () => {
+                steps.forEach((step, index) => {
+                    step.classList.toggle('is-visible', index < current);
+                });
+                if (progress) progress.textContent = `${current} / ${steps.length}`;
+                const playBtn = controls ? controls.querySelector('[data-excal-action="play"]') : null;
+                if (playBtn) playBtn.textContent = playing ? 'Pause' : 'Play';
+            };
+
+            const stop = () => {
+                playing = false;
+                if (timer) {
+                    clearInterval(timer);
+                    timer = null;
+                }
+                update();
+            };
+
+            const start = () => {
+                if (playing || !steps.length) return;
+                playing = true;
+                update();
+                timer = setInterval(() => {
+                    if (current >= steps.length) {
+                        stop();
+                        return;
+                    }
+                    current += 1;
+                    update();
+                }, 700);
+            };
+
+            if (controls) {
+                controls.addEventListener('click', (event) => {
+                    const action = event.target.closest('[data-excal-action]')?.getAttribute('data-excal-action');
+                    if (!action) return;
+                    if (action === 'play') {
+                        if (playing) stop();
+                        else start();
+                    }
+                    if (action === 'prev') {
+                        stop();
+                        current = Math.max(0, current - 1);
+                        update();
+                    }
+                    if (action === 'next') {
+                        stop();
+                        current = Math.min(steps.length, current + 1);
+                        update();
+                    }
+                    if (action === 'reset') {
+                        stop();
+                        current = 0;
+                        update();
+                    }
+                });
+            }
+
+            return {
+                setSteps(nextSteps) {
+                    steps = nextSteps;
+                    current = 0;
+                    stop();
+                }
+            };
+        }
+
+        async function renderExcalidrawPlayers() {
+            const players = document.querySelectorAll('[data-excalidraw]:not([data-excalidraw-rendered])');
+            await Promise.all(Array.from(players).map(async (player) => {
+                player.setAttribute('data-excalidraw-rendered', 'true');
+                const src = player.getAttribute('data-excalidraw');
+                const excalPlayer = createExcalPlayer(player);
+                try {
+                    const response = await fetch(src);
+                    const data = await response.json();
+                    const files = data.files || {};
+                    const elements = (data.elements || [])
+                        .filter((element) => !element.isDeleted)
+                        .sort((a, b) => String(a.index || '').localeCompare(String(b.index || '')));
+
+                    if (!elements.length) return;
+
+                    let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
+                    elements.forEach((element) => {
+                        const bounds = getElementBounds(element);
+                        minX = Math.min(minX, bounds.minX);
+                        minY = Math.min(minY, bounds.minY);
+                        maxX = Math.max(maxX, bounds.maxX);
+                        maxY = Math.max(maxY, bounds.maxY);
+                    });
+
+                    const padding = 80;
+                    const contentWidth = Math.max(maxX - minX, 1);
+                    const contentHeight = Math.max(maxY - minY, 1);
+                    const stageWidth = 1600;
+                    const stageHeight = 900;
+                    const fitPadding = 120;
+                    const fitScale = Math.min(
+                        (stageWidth - fitPadding * 2) / contentWidth,
+                        (stageHeight - fitPadding * 2) / contentHeight
+                    );
+                    const offsetX = (stageWidth - contentWidth * fitScale) / 2 - minX * fitScale;
+                    const offsetY = (stageHeight - contentHeight * fitScale) / 2 - minY * fitScale;
+
+                    const svg = createSvgEl('svg', {
+                        viewBox: `0 0 ${stageWidth} ${stageHeight}`,
+                        preserveAspectRatio: 'xMidYMid meet',
+                    });
+                    const scene = createSvgEl('g', {
+                        transform: `translate(${offsetX} ${offsetY}) scale(${fitScale})`,
+                    });
+
+                    const renderedSteps = [];
+                    elements.forEach((element) => {
+                        let group = null;
+                        if (element.type === 'ellipse') group = buildEllipseGroup(element);
+                        if (element.type === 'arrow') group = buildArrowGroup(element);
+                        if (element.type === 'text') group = buildTextGroup(element);
+                        if (element.type === 'image') group = buildImageGroup(element, files);
+                        if (!group) return;
+                        if (element.strokeStyle === 'dashed') {
+                            group.classList.add('excal-step-dashed');
+                        }
+                        scene.appendChild(group);
+                        renderedSteps.push(group);
+                    });
+
+                    svg.appendChild(scene);
+                    player.appendChild(svg);
+                    excalPlayer.setSteps(renderedSteps);
+                } catch (error) {
+                    player.textContent = `Failed to render ${src}`;
+                    console.error(error);
+                }
+            }));
+        }
+
+        function bindScrollableSlideRegions() {
+            const regions = document.querySelectorAll('.excal-image-board-scroll:not([data-scroll-bound])');
+            regions.forEach((region) => {
+                region.setAttribute('data-scroll-bound', 'true');
+                region.addEventListener('wheel', (event) => {
+                    const canScroll = region.scrollHeight > region.clientHeight;
+                    if (!canScroll) return;
+                    event.preventDefault();
+                    event.stopPropagation();
+                    region.scrollTop += event.deltaY;
+                }, { passive: false });
+            });
+        }
+
         Reveal.initialize({
             hash: true,
             slideNumber: function(slide) {
@@ -82,6 +411,11 @@
             markdown: {
                 smartypants: false
             }
+        });
+
+        Reveal.on('ready', () => {
+            renderExcalidrawPlayers();
+            bindScrollableSlideRegions();
         });
     </script>
 </body>

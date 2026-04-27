@@ -30,12 +30,7 @@
 - 容错机制：状态持久化、断点续传、失败分类
 - 这就是 Harness 的体现：结构化约束 + 可验证 + 容错
 
-### P4 — Pipeline 运行 [asciinema 录像 30s]
-- 展示终端里 pipeline 运行的输出
-- 重点看 Claude 和 GPT 交替推进的过程
-- 不需要很长，30 秒够了
-
-### P5 — Step 8：Corpus Reviewer [现场 Live Demo 60s]
+### P4 — Step 8：Corpus Reviewer [现场 Live Demo 60s]
 - 现场启动 corpus_reviewer.py
 - 展示：左边 AI 分析结果，右边原始 PDF
 - 操作：四视图切换（GPT Review → Claude Extraction → GPT Revised → Human Edit）
@@ -43,7 +38,7 @@
 - 讲：不盲目信任 AI，但也不手动做苦力
 - 保底：截图 corpus-reviewer.png
 
-### P6 — 输出示例：开题报告直接能用
+### P5 — 输出示例：开题报告直接能用
 - 展示 DECA 论文的实际 dossier JSON（关键字段）
 - 每个 field 对应开题报告的哪个章节
 - research_purpose → 研究目的
